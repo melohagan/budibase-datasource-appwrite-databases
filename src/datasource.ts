@@ -25,7 +25,13 @@ class CustomIntegration implements IntegrationBase {
     return await this.databases.createDocument(query.databaseId, query.collectionId, query.documentId, query.data)
   }
 
-  async read(query: { databaseId: string; collectionId: string; extra: { [key:string]: string; } }) {
+  async read(query: { databaseId: string; collectionId: string; documentId: string; extra: { [key:string]: string; } }) {
+    if (query.extra.type === "Documents") {
+      if (query.documentId) {
+        return await this.databases.getDocument(query.databaseId, query.collectionId, query.documentId)
+      }
+      return await this.databases.listDocuments(query.databaseId, query.collectionId)
+    }
     if (query.extra.type === "Collections") {
       if (query.collectionId) {
         return await this.databases.getCollection(query.databaseId, query.collectionId)

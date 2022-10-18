@@ -69,6 +69,10 @@
           "collectionId": {
             "type": "string",
             "required": false
+          },
+          "documentId": {
+            "type": "string",
+            "required": false
           }
         }
       },
@@ -115,7 +119,8 @@
           ],
           "read": [
             "Databases",
-            "Collections"
+            "Collections",
+            "Documents"
           ],
           "update": [
             "Databases",
