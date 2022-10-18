@@ -124,6 +124,10 @@
           "collectionId": {
             "type": "string",
             "required": false
+          },
+          "documentId": {
+            "type": "string",
+            "required": false
           }
         }
       }
@@ -149,7 +153,8 @@
           ],
           "delete": [
             "Databases",
-            "Collections"
+            "Collections",
+            "Documents"
           ]
         }
       }

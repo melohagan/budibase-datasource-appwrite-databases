@@ -1,6 +1,6 @@
 {
   "name": "appwrite-databases",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Manage Databases, Collections, and Documents in Appwrite",
   "main": "src/index.ts",
   "license": "MIT",
