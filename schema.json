@@ -38,6 +38,27 @@
           }
         }
       },
+      "createDocument": {
+        "type": "fields",
+        "fields": {
+          "databaseId": {
+            "type": "string",
+            "required": true
+          },
+          "collectionId": {
+            "type": "string",
+            "required": true
+          },
+          "documentId": {
+            "type": "string",
+            "required": true
+          },
+          "data": {
+            "type": "json",
+            "required": "true"
+          }
+        }
+      },
       "read": {
         "type": "fields",
         "fields": {
