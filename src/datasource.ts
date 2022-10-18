@@ -51,6 +51,10 @@ class CustomIntegration implements IntegrationBase {
     return await this.databases.update(query.databaseId, query.name)
   }
 
+  async updateDocument(query: { databaseId: string; collectionId: string; documentId: string; data: object; extra: { [key:string]: string; } }) {
+    return await this.databases.updateDocument(query.databaseId, query.collectionId, query.documentId, query.data)
+  }
+
   async delete(query: { databaseId: string; collectionId: string; extra: { [key:string]: string; } }) {
     if (query.extra.type === "Collections") {
       return await this.databases.deleteCollection(query.databaseId, query.collectionId)

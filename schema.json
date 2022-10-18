@@ -55,7 +55,7 @@
           },
           "data": {
             "type": "json",
-            "required": "true"
+            "required": true
           }
         }
       },
@@ -90,6 +90,27 @@
           "name": {
             "type": "string",
             "required": true
+          }
+        }
+      },
+      "updateDocument": {
+        "type": "fields",
+        "fields": {
+          "databaseId": {
+            "type": "string",
+            "required": true
+          },
+          "collectionId": {
+            "type": "string",
+            "required": true
+          },
+          "documentId": {
+            "type": "string",
+            "required": true
+          },
+          "data": {
+            "type": "json",
+            "required": false
           }
         }
       },
