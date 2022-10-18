@@ -28,9 +28,13 @@
             "type": "string",
             "required": true
           },
-          "name": {
+          "collectionId": {
             "type": "string",
             "required": false
+          },
+          "name": {
+            "type": "string",
+            "required": true
           }
         }
       },
@@ -40,6 +44,10 @@
           "databaseId": {
             "type": "string",
             "required": true
+          },
+          "collectionId": {
+            "type": "string",
+            "required": false
           }
         }
       },
@@ -49,6 +57,10 @@
           "databaseId": {
             "type": "string",
             "required": true
+          },
+          "collectionId": {
+            "type": "string",
+            "required": false
           },
           "name": {
             "type": "string",
@@ -62,6 +74,10 @@
           "databaseId": {
             "type": "string",
             "required": true
+          },
+          "collectionId": {
+            "type": "string",
+            "required": false
           }
         }
       }
@@ -72,6 +88,22 @@
         "type": "list",
         "required": false,
         "data": {
+          "create": [
+            "Databases",
+            "Collections"
+          ],
+          "read": [
+            "Databases",
+            "Collections"
+          ],
+          "update": [
+            "Databases",
+            "Collections"
+          ],
+          "delete": [
+            "Databases",
+            "Collections"
+          ]
         }
       }
     }
