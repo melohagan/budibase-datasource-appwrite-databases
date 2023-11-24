@@ -25,23 +25,31 @@ class CustomIntegration implements IntegrationBase {
     return await this.databases.createDocument(query.databaseId, query.collectionId, query.documentId, query.data)
   }
 
-  async read(query: { databaseId: string; collectionId: string; documentId: string; extra: { [key:string]: string; } }) {
+  async read(query: { databaseId: string; collectionId: string; documentId: string; queries: string; extra: { [key:string]: string; } }) {
+    let queries
+    if (query.queries) {
+      try {
+        queries = JSON.parse(query.queries)
+      } catch(e) {
+        throw "Invalid queries - must be a valid array."
+      }
+    }
     if (query.extra.type === "Documents") {
       if (query.documentId) {
         return await this.databases.getDocument(query.databaseId, query.collectionId, query.documentId)
       }
-      return await this.databases.listDocuments(query.databaseId, query.collectionId)
+      return await this.databases.listDocuments(query.databaseId, query.collectionId, queries)
     }
     if (query.extra.type === "Collections") {
       if (query.collectionId) {
         return await this.databases.getCollection(query.databaseId, query.collectionId)
       }
-      return await this.databases.listCollections(query.databaseId)
+      return await this.databases.listCollections(query.databaseId, queries)
     }
     if (query.databaseId) {
       return await this.databases.get(query.databaseId)
     }
-    return await this.databases.list()
+    return await this.databases.list(queries)
   }
 
   async update(query: { databaseId: string; collectionId: string; name: string; extra: { [key:string]: string; } }) {

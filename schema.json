@@ -9,7 +9,8 @@
     "datasource": {
       "endpoint": {
         "type": "string",
-        "required": true
+        "required": true,
+        "default": "https://cloud.appwrite.io/v1"
       },
       "projectId": {
         "type": "string",
@@ -71,6 +72,10 @@
             "required": false
           },
           "documentId": {
+            "type": "string",
+            "required": false
+          },
+          "queries": {
             "type": "string",
             "required": false
           }
